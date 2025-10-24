@@ -1,0 +1,33 @@
+# --- 基本 ---
+numpy
+pandas
+scikit-learn
+tqdm
+omegaconf
+hydra-core
+python-dotenv
+
+# --- 可視化 ---
+matplotlib
+seaborn
+plotly
+kaleido
+
+# --- NLP / 埋め込み ---
+transformers
+sentence-transformers
+gensim
+datasets<3.0
+
+# --- 実験管理 ---
+wandb
+optuna
+
+# --- 次元削減 ---
+umap-learn
+
+# --- プロジェクト依存（必要な場合） ---
+cebra
+
+# --- Kaggle Hub ---
+kagglehub
