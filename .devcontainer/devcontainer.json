@@ -1,0 +1,37 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "CEBRA (compose)",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "cebra-stable",
+  "workspaceFolder": "/workspace/CEBRA_NLP",
+
+  "shutdownAction": "none",
+  "containerUser": "root",
+
+  // Mac → SSH → armageddon → コンテナ で SSH鍵を中継（Git pull/push 用）
+  "mounts": [
+    "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+  ],
+  "remoteEnv": {
+    "SSH_AUTH_SOCK": "/ssh-agent"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-azuretools.vscode-docker",
+        "github.vscode-pull-request-github"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "python.terminal.activateEnvironment": false,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+
+  // 必要なら初回だけ何か実行
+  // "postCreateCommand": "python -c \"import torch; print(torch.cuda.device_count())\""
+}
